@@ -1,0 +1,10 @@
+Brief Overview of implementation:
+
+1. The pipeline implemented is configuration-driven. Each partner has its own config defining delimiter, column mapping, and date format. The ingestion logic implemented is generic and never changes.
+
+2. I only add a new entry to the config dictionary.
+No code changes are required to do it, which makes the pipeline scalable and safe.
+
+3. Data quality is achieved through enforcing required fields, standardizing formats, and running data quality checks such as missing IDs, invalid dates, and malformed phone numbers.
+
+4. The code uses Spark SQL expressions instead of UDFs, so it scales linearly.
